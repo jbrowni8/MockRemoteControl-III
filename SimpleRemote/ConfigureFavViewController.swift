@@ -2,7 +2,7 @@
 //  ConfigureFavViewController.swift
 //  SimpleRemote
 //
-//  Created by James Browning on 3/1/17.
+//  Created by James Browning on 2/27/17.
 //  Copyright © 2017 James Browning. All rights reserved.
 //
 
