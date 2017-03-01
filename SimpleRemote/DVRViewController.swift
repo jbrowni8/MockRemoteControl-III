@@ -13,7 +13,6 @@ class DVRViewController: UIViewController {
     @IBOutlet weak var power: UILabel!
     @IBOutlet weak var state: UILabel!
     @IBOutlet weak var functionsViewController: UIView!
-    @IBOutlet weak var goToRemote: UIBarButtonItem!
     
     @IBAction func dvrPower(_ sender: UISwitch) {
         power.text = (sender.isOn ? "On" : "Off")
@@ -26,7 +25,6 @@ class DVRViewController: UIViewController {
             enabled = false
             state.text = "Off"
             functionsViewController.isUserInteractionEnabled = enabled
-            goToRemote.isEnabled = enabled
         }
     }
     
