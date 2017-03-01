@@ -22,7 +22,6 @@ class DVRViewController: UIViewController {
             enabled = true
             state.text = "Stopped"
             functionsViewController.isUserInteractionEnabled = enabled
-            goToRemote.isEnabled = enabled
         } else {
             enabled = false
             state.text = "Off"
