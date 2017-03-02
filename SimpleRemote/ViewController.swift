@@ -92,13 +92,15 @@ class ViewController: UIViewController {
         fav = channelTextToSend
         chanReceived = channelToSend
         
+        print (fav)
+        print (chanReceived)
+        
         if fav != "" {
-            chan.text = fav
-            if let fav: String = segmentControl.titleForSegment(at: chanReceived-1) {
-                chan.text = fav
-            }
-            
+            segmentControl.insertSegment(withTitle: fav.uppercased(), at: chanReceived-1, animated: false)
+            segmentControl.removeSegment(at: chanReceived, animated: true)
         }
+        
+        //segmentControl.removeSegment(at: chanReceived-1, animated: true)
     }
 
     override func didReceiveMemoryWarning() {
