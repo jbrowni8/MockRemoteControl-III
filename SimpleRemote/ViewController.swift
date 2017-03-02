@@ -16,6 +16,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var segmentControl: UISegmentedControl!
     
+    var chanReceived : Int = 0
+    
+    var fav : String = ""
+    
     var digits : String = ""
     var counter = 0
     
@@ -81,7 +85,20 @@ class ViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        fav = channelTextToSend
+        chanReceived = channelToSend
+        
+        if fav != "" {
+            chan.text = fav
+            if let fav: String = segmentControl.titleForSegment(at: chanReceived-1) {
+                chan.text = fav
+            }
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {

@@ -8,12 +8,14 @@
 
 import UIKit
 
+var channelToSend = Int()
+var channelTextToSend = String()
+
 class ConfigureFavViewController: UIViewController {
 
     @IBOutlet weak var descriptionTextField: UITextField!
     @IBOutlet weak var chanTF: UILabel!
     @IBOutlet weak var stepperVal: UIStepper!
-    @IBOutlet weak var configChanTab: UITabBarItem!
     
     @IBAction func descExit(_ sender: UITextField) {
         descriptionTextField.resignFirstResponder()
@@ -26,6 +28,47 @@ class ConfigureFavViewController: UIViewController {
             stepperVal.value = (Double(seg))!
         }
     }
+    
+    @IBAction func cancelButtonPressed(_ sender: UIButton) {
+        descriptionTextField.text = ""
+        chanTF.text = "1"
+        stepperVal.value = 1.0
+    }
+    
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
+        if descriptionTextField.text != nil {
+           channelTextToSend = descriptionTextField.text!
+
+        }
+        
+        if chanTF.text != nil {
+            if let text = Int(chanTF.text!) {
+                channelToSend  = text
+            }
+        }
+        
+        let alertController = UIAlertController(title: title,
+                                                message: "You've chosen \(channelTextToSend) to be on channel \(channelToSend)", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .destructive, handler: nil)
+        let okayAction = UIAlertAction(title: "Confirm",
+                                       style: .default) {
+                                        _ in channelTextToSend = channelTextToSend
+        }
+
+        alertController.addAction(cancelAction)
+        alertController.addAction(okayAction)
+        present(alertController, animated: true, completion: nil)
+        
+        let chanName = storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        chanName.fav = channelTextToSend
+        navigationController?.pushViewController(chanName, animated: true)
+        
+        let chanNum = storyboard?.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+        chanNum.chanReceived = channelToSend
+        navigationController?.pushViewController(chanNum, animated: true)
+        }
+    
     
     @IBAction func chanClicker(_ sender: UIStepper) {
         chanTF.text = Int(sender.value).description

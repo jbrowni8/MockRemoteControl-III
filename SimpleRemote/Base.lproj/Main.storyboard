@@ -11,10 +11,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Remote-->
+        <!--ViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SimpleRemote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" userLabel="ViewController" customClass="ViewController" customModule="SimpleRemote" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -106,7 +106,7 @@
                                     <constraint firstItem="jgz-xt-f9s" firstAttribute="leading" secondItem="blf-C8-qaI" secondAttribute="trailing" constant="31" id="z9b-T8-XHk"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8o-aO-pbZ">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h8o-aO-pbZ" userLabel="ViewController">
                                 <rect key="frame" x="16" y="156" width="343" height="491"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Remote Control" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="191-HS-Tbu">
@@ -548,7 +548,7 @@
                             <constraint firstItem="iE6-lw-PZB" firstAttribute="centerX" secondItem="E6I-qV-y1y" secondAttribute="centerX" id="yil-MK-dvd"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" enabled="NO" title="DVR" image="dvr" selectedImage="dvr" id="CHP-nj-yIH"/>
+                    <tabBarItem key="tabBarItem" title="DVR" image="dvr" selectedImage="dvr" id="CHP-nj-yIH"/>
                     <connections>
                         <outlet property="functionsViewController" destination="j6Z-Mu-utg" id="azH-ta-CYH"/>
                         <outlet property="power" destination="Awf-zQ-aqi" id="vS2-Us-kYg"/>
@@ -637,10 +637,16 @@
                                     <constraint firstAttribute="width" constant="46" id="Q70-KI-PoN"/>
                                 </constraints>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="UIa-Dq-ol8" eventType="touchUpInside" id="ecn-fc-ozp"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nog-E3-7da">
                                 <rect key="frame" x="184" y="262" width="54" height="30"/>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="UIa-Dq-ol8" eventType="touchUpInside" id="PUh-Bj-oBm"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -671,7 +677,7 @@
                             <constraint firstItem="Q3g-Wi-SFd" firstAttribute="bottom" secondItem="mwQ-jV-4qF" secondAttribute="bottom" id="yq6-qt-4Yb"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" enabled="NO" title="Configure Favorites" image="channel" selectedImage="channel" id="JTL-mb-yXB"/>
+                    <tabBarItem key="tabBarItem" title="Configure Favorites" image="channel" selectedImage="channel" id="JTL-mb-yXB"/>
                     <connections>
                         <outlet property="chanTF" destination="ihq-ZU-yl6" id="bPd-R9-NNq"/>
                         <outlet property="descriptionTextField" destination="CsC-ed-DBX" id="pOu-9t-ztI"/>
