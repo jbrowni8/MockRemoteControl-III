@@ -29,14 +29,22 @@ class DVRViewController: UIViewController {
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
-        if let text = sender.titleLabel {
-            if text.text == "Stop" {
+        var currentState : String = ""
+        if state.text != nil {
+            currentState = state.text!
+        }
+        if let text = sender.titleLabel?.text {
+            if text == "Stop" {
                 state.text = "Stopped"
-            } else if text.text == "Pause" {
-                state.text = "Paused"
-            } else {
-                let conjunction = text.text! + "ing"
-                state.text = conjunction
+            } else if currentState == "Stopped" && text == "Record" {
+                state.text = "Recording"
+            } else if currentState == "Stopped" && text == "Play"{
+                state.text = "Playing"
+            } else if text == "Pause" && (currentState == "Stopped"
+                || currentState == "Playing") {
+                state.text = "Pausing"
+            } else if currentState == "Playing"{
+                state.text = text + "ing"
             }
         }
     }
